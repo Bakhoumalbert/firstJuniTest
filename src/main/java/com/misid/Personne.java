@@ -58,7 +58,20 @@ public class Personne {
             return false; // Une chaîne null n'est jamais valide
         }
         // Regex simple pour vérifier un email
-        return email.matches("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+        return email.matches("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$");
+    }
+
+    // Exercice 12
+    // Méthode pour obtenir la liste des noms des utilisateurs
+    public List<String> obtenirNomsUtilisateurs() {
+        List<String> noms = new ArrayList<>();
+        Personne jean = new Personne("Jean", 20);
+        noms.add(jean.getNom());
+        Personne marie = new Personne("Marie", 30);
+        noms.add(marie.getNom());
+        Personne pierre = new Personne("Pierre", 40);
+        noms.add(pierre.getNom());
+        return noms;
     }
 }
 
